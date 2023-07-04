@@ -45,6 +45,15 @@ io.on("connection", async (socket) => {
     userId: socket.userId,
     username: socket.username,
   });
+
+  // new message event
+  socket.on("new message", (message) => {
+    socket.broadcast.emit("new message", {
+      userId: socket.userId,
+      username: socket.username,
+      message,
+    });
+  });
 });
 
 console.log("server is listening successfully on port", process.env.PORT);

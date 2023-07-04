@@ -37,6 +37,16 @@ const Main = ({ socket }) => {
       };
       setMessages([...messages, newMessages]);
     });
+
+    socket.on("new message", ({ userId, username, message }) => {
+      const newMessage = {
+        type: "message",
+        userId: userId,
+        username: username,
+        message,
+      };
+      setMessages([...messages, newMessage]);
+    });
   }, [socket, messages]);
 
   const logNewUser = () => {
@@ -46,6 +56,18 @@ const Main = ({ socket }) => {
     };
     socket.connect();
   };
+
+  const sendMessage = () => {
+    socket.emit("new message", message);
+    const newMessage = {
+      type: "message",
+      userId: user.userId,
+      username: user.username,
+      message,
+    };
+    setMessages([...messages, newMessage]);
+    setMessage("");
+  };
   return (
     <main className="content">
       <div className="container mt-3">
@@ -54,6 +76,7 @@ const Main = ({ socket }) => {
             user={user}
             messages={messages}
             message={message}
+            sendMessage={sendMessage}
             setMessage={setMessage}
           />
         )}
