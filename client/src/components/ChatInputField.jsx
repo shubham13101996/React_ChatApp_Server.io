@@ -1,0 +1,21 @@
+import React from "react";
+
+const ChatInputField = ({ message, setMessage }) => {
+  return (
+    <div className="mt-auto align-items-end border-info d-lg-block py-3 px-4 border-top">
+      <div className="input-group flex-fill">
+        <input
+          className="form-control"
+          type="text"
+          name="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type your message..."
+        />
+        <button className="btn btn-info ">Send</button>
+      </div>
+    </div>
+  );
+};
+
+export default ChatInputField;
