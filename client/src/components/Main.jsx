@@ -1,14 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chat from "./Chat";
 import NewUser from "./NewUser";
 
-const Main = () => {
+const Main = ({ socket }) => {
   const [newUser, setNewUser] = useState("");
   const [user, setUser] = useState("");
   const [message, setMessage] = useState("");
 
+  useEffect(() => {
+    socket.on("session", ({ userId, username }) => {
+      setUser(username);
+    });
+  }, [socket]);
+
   const logNewUser = () => {
     setUser(newUser);
+    socket.auth = {
+      username: newUser,
+    };
+    socket.connect();
   };
   return (
     <main className="content">
