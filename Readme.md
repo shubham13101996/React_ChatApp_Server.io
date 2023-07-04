@@ -15,3 +15,8 @@ Step2: Type the message that you wanna send.<br/>
 Step3: Open new tab and run the react local server to create the new user.<br/>
 Step4: Repeat the step2.<br/>
 step5: If you wanna create other user then repeat the step3 and then step2.<br/>
+
+![Web capture_5-7-2023_22751_localhost](https://github.com/shubham13101996/Unibit_Test/assets/121822895/36f82db5-3282-477f-b822-94674ddb09d3)
+
+
+![Web capture_5-7-2023_22826_localhost](https://github.com/shubham13101996/Unibit_Test/assets/121822895/c64441eb-a06c-4601-bbe3-660fbe982727)
