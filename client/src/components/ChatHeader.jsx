@@ -8,13 +8,13 @@ const ChatHeader = ({ user }) => {
           <img
             src="https://www.pngarts.com/files/6/User-Avatar-in-Suit-PNG.png"
             className="rounded-circle mx-2"
-            alt="avatar"
+            alt={user.username}
             width="40"
             height="40"
           />
         </div>
         <div className="flex-grow-1">
-          <strong>Logged in as {user}</strong>
+          <strong>Logged in as {user.username}</strong>
         </div>
       </div>
     </div>
